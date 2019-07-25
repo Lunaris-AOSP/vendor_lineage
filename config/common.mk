@@ -100,7 +100,7 @@ PRODUCT_COPY_FILES += \
 
 # Enable transitional log for Privileged permissions
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.control_privapp_permissions=log
+    ro.control_privapp_permissions=enforce
 
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 # Lineage SDK
