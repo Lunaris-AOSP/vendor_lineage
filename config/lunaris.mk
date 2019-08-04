@@ -62,6 +62,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     CustomFontPixelLauncherOverlay
 
+# Init
+PRODUCT_COPY_FILES += \
+    vendor/lineage/prebuilts/etc/init.lunaris.rc:$(TARGET_COPY_OUT_SYSTEM)/etc/init/init.aospa.rc
+
 ifneq ($(TARGET_FACE_UNLOCK_SUPPORTED),false)
 PRODUCT_PACKAGES += \
     FaceUnlock
