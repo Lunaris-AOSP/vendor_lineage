@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
     OmniJaws \
     OmniStyle
 
+# Pixel
+PRODUCT_PACKAGES += \
+    CustomFontPixelLauncherOverlay
+
 ifneq ($(TARGET_FACE_UNLOCK_SUPPORTED),false)
 PRODUCT_PACKAGES += \
     FaceUnlock
