@@ -92,6 +92,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PihooksGmsFp="google/tangorpro_beta/tangorpro:16/BP31.250523.006/13607978:user/release-keys" \
     PihooksGmsModel="Pixel Tablet"
 
+# Cloned app exemption
+PRODUCT_COPY_FILES += \
+    vendor/lineage/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-lunaris-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-lunaris-product.xml
+
 AXION_CPU_SMALL_CORES ?= 0,1,2,3
 AXION_CPU_BIG_CORES ?= 4,5,6,7
 AXION_CPU_UNLIMIT_UI ?= 0-7
