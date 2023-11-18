@@ -31,6 +31,10 @@ PRODUCT_PACKAGES += \
     Updater
 endif
 
+# Cloned app exemption
+PRODUCT_COPY_FILES += \
+    vendor/lineage/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-lunaris-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-lunaris-product.xml
+
 # Private keys
 ifeq ($(LUNARIS_BUILD_TYPE),Official)
 include vendor/lunaris-priv/keys/keys.mk
