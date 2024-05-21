@@ -137,6 +137,7 @@ PRODUCT_PACKAGES += \
     AxSandbox \
     AxThemeStore \
     BatteryStatsViewer \
+    BtHelper \
     GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
