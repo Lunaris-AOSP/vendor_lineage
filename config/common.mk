@@ -3,7 +3,8 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product-if-exists, vendor/lineage/config/lunaris.mk)
 $(call inherit-product-if-exists, vendor/addons/config.mk)
 $(call inherit-product-if-exists, vendor/certification/config.mk)
-$(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product-if-exists, vendor/lunaris/product.mk)
+$(call inherit-product-if-exists, vendor/google/overlays/ThemeIcons/config.mk)
 
 PRODUCT_BRAND ?= LunarisOS
 
