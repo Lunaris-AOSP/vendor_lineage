@@ -172,6 +172,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.disable_rescue=true
 
+# Disable default frame rate limit for games
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.graphics.game_default_frame_rate.disabled=true
+
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
     bash \
