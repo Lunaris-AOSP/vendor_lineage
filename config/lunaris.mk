@@ -63,6 +63,26 @@ PRODUCT_PACKAGES += \
     OmniJaws \
     OmniStyle
 
+# Add properties for mainline spoofing 
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.pihooks_mainline_BRAND?=google \
+    persist.sys.pihooks_mainline_DEVICE?=caiman \
+    persist.sys.pihooks_mainline_MANUFACTURER?=Google \
+    persist.sys.pihooks_mainline_PRODUCT?=caiman \
+    persist.sys.pihooks_BRAND?=google \
+    persist.sys.pihooks_MANUFACTURER?=Google \
+    persist.sys.pihooks_DEVICE?=komodo \
+    persist.sys.pihooks_PRODUCT?=komodo_beta \
+    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=35 \
+    persist.sys.pihooks_SECURITY_PATCH?=2024-12-05 \
+    persist.sys.pihooks_ID?=BP11.241121.010
+    
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PihooksGmsFp="google/komodo_beta/komodo:15/BP11.241121.010/12780007:user/release-keys" \
+    PihooksGmsModel="Pixel 9 Pro XL" \
+    PihooksBuildFp="google/caiman/caiman:14/AD1A.240530.047.U1/12150698:user/release-keys" \
+    PihooksBuildModel="Pixel 9 Pro"
+
 # Pixel
 PRODUCT_PACKAGES += \
     CustomFontPixelLauncherOverlay
