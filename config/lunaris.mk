@@ -33,6 +33,20 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.launcher.blur.appLaunch=0
 
+# Quick Switch
+TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
+ifeq ($(TARGET_DEFAULT_PIXEL_LAUNCHER), true)
+# Pixel Launcher
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=1 \
+    persist.sys.quickswitch_pixel_shipped=1
+else
+# Launcher3
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0 \
+    persist.sys.quickswitch_pixel_shipped=0
+endif
+
 # Inherit from GMS product config
 ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/gms/products/gms.mk)
