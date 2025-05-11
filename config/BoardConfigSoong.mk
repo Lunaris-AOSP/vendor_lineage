@@ -30,6 +30,12 @@ endef
 
 $(foreach v,$(EXPORT_TO_SOONG),$(eval $(call addVar,$(v))))
 
+SOONG_CONFIG_NAMESPACES += lineageGlobalVars
+
+ifneq ($(TARGET_CAMERA_PACKAGE_NAME),)
+    $(error TARGET_CAMERA_PACKAGE_NAME is deprecated, please migrate to soong_config_set,camera,package_name)
+endif
+
 # Libui
 ifneq ($(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS),)
     $(call soong_config_set,libui,additional_gralloc_10_usage_bits,$(TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS))
