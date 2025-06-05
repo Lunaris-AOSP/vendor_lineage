@@ -141,6 +141,9 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PihooksGmsFp="google/husky_beta/husky:16/BP31.250610.009/13905196:user/release-keys" \
     PihooksGmsModel="Pixel 8 Pro"
 
+PRODUCT_PACKAGES += \
+    CertifiedKeyboxOverlay
+
 LUNARIS_CPU_SMALL_CORES ?= 0,1,2,3
 LUNARIS_CPU_BIG_CORES ?= 4,5,6,7
 LUNARIS_ALL_CORES ?= 0-7
