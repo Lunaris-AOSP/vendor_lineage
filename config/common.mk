@@ -260,6 +260,9 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.sf.enable_transaction_tracing=false
 endif
 
+# Audio files
+$(call inherit-product, vendor/lineage/audio/audio.mk)
+
 # SetupWizard
 ifeq ($(WITH_GMS),false)
 PRODUCT_PRODUCT_PROPERTIES += \
