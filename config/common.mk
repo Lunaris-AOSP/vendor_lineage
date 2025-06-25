@@ -1,7 +1,8 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
+$(call inherit-product, vendor/lineage/config/lunaris.mk)
 
-PRODUCT_BRAND ?= LineageOS
+PRODUCT_BRAND ?= Lunaris-AOSP
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -91,9 +92,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/lineage/config/permissions/org.lineageos.android.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/org.lineageos.android.xml
 
-# Enforce privapp-permissions whitelist
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    ro.control_privapp_permissions=enforce
+# Enable transitional log for Privileged permissions
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.control_privapp_permissions=log
 
 ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 # Lineage SDK
@@ -116,11 +117,8 @@ ifneq ($(TARGET_DISABLE_EPPE),true)
 $(call enforce-product-packages-exist-internal,$(wildcard device/*/$(LINEAGE_BUILD)/$(TARGET_PRODUCT).mk),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
-# Bootanimation
-TARGET_SCREEN_WIDTH ?= 1080
-TARGET_SCREEN_HEIGHT ?= 1920
-PRODUCT_PACKAGES += \
-    bootanimation.zip
+# Boot Animation
+$(call inherit-product, vendor/lineage/bootanimation/Android.mk)
 
 # Build Manifest
 PRODUCT_PACKAGES += \
@@ -140,8 +138,7 @@ PRODUCT_PACKAGES += \
 endif
 
 PRODUCT_PACKAGES += \
-    LineageSettingsProvider \
-    Updater
+    LineageSettingsProvider
 
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/init/init.lineage-updater.rc:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/init/init.lineage-updater.rc
@@ -258,7 +255,4 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 
 include vendor/lineage/config/version.mk
 
--include vendor/lineage-priv/keys/keys.mk
-
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/lineage/config/partner_gms.mk
