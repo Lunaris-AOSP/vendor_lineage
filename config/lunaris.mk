@@ -1,5 +1,7 @@
 PRODUCT_PACKAGES += \
-    Updater
+    Updater \
+    GameSpace \
+    BtHelper
 
 # DeviceAsWebcam
 ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
