@@ -1,4 +1,5 @@
 # Allow vendor/extra to override any property by setting it first
+$(call inherit-product, vendor/extras/config.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/lineage/config/lunaris.mk)
 
@@ -132,12 +133,16 @@ ifneq ($(TARGET_DISABLE_EPPE),true)
 $(call enforce-product-packages-exist-internal,$(wildcard device/*/$(LINEAGE_BUILD)/$(TARGET_PRODUCT).mk),product_manifest.xml rild Calendar android.hidl.memory@1.0-impl.vendor vndk_apex_snapshot_package)
 endif
 
-# Boot Animation
-$(call inherit-product, vendor/lineage/bootanimation/Android.mk)
-
 # Build Manifest
 PRODUCT_PACKAGES += \
     build-manifest
+
+# Pixel additions
+WITH_GMS := true
+ifeq ($(WITH_GMS),true)
+$(call inherit-product, vendor/google/overlays/ThemeIcons/config.mk)
+$(call inherit-product, vendor/gms/products/gms.mk)
+endif
 
 # Lineage packages
 ifeq ($(PRODUCT_IS_ATV),)
@@ -160,7 +165,6 @@ PRODUCT_COPY_FILES += \
 
 # Config
 PRODUCT_PACKAGES += \
-    SimpleDeviceConfig \
     SimpleSettingsConfig
 
 # Disable default frame rate limit for games
@@ -209,9 +213,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
+ifeq ($(WITH_GMS),false)
 # Storage manager
-PRODUCT_SYSTEM_PROPERTIES += \
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
+endif
 
 # Default wifi country code
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -241,7 +247,6 @@ endif
 
 # SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep \
     Settings \
     CarSystemUI \
     SystemUI
@@ -255,9 +260,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 endif
 
 # SetupWizard
+ifeq ($(WITH_GMS),false)
 PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.theme=glif_v4 \
     setupwizard.feature.day_night_mode_enabled=true
+endif
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \

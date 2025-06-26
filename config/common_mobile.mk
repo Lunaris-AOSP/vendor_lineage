@@ -9,9 +9,9 @@ include vendor/lineage/config/aosp_audio.mk
 include vendor/lineage/config/lineage_audio.mk
 
 # Default notification/alarm sounds
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.notification_sound=Argon.ogg \
-    ro.config.alarm_alert=Hassium.ogg
+#PRODUCT_PRODUCT_PROPERTIES += \
+#    ro.config.notification_sound=Argon.ogg \
+#    ro.config.alarm_alert=Hassium.ogg
 
 # Apps
 PRODUCT_PACKAGES += \
@@ -21,11 +21,11 @@ PRODUCT_PACKAGES += \
     LatinIME
 
 # Temp build
-PRODUCT_PACKAGES += \
-    Launcher3QuickStep
+#PRODUCT_PACKAGES += \
+#    Launcher3QuickStep
 
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    Launcher3QuickStep
+#PRODUCT_DEXPREOPT_SPEED_APPS += \
+#    Launcher3QuickStep
 
 # Charger
 PRODUCT_PACKAGES += \
