@@ -14,10 +14,7 @@ endif
 
 # Google Overlays
 PRODUCT_PACKAGES += \
-    CustomFontPixelLauncherOverlay \
-    PixelLauncherNoGestureHintOverlay \
-    PixelLauncherOverlayBlur \
-    PixelLauncherOverlayCustom 
+    CustomFontPixelLauncherOverlay
 
 # Disable async MTE on a few processes
 PRODUCT_SYSTEM_EXT_PROPERTIES += \

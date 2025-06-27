@@ -2,6 +2,10 @@
 $(call inherit-product, vendor/extras/config.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/lineage/config/lunaris.mk)
+$(call inherit-product, vendor/pixel-style/config/common.mk)
+
+# Singing keys
+$(call inherit-product, vendor/lunaris-priv/keys/keys.mk)
 
 PRODUCT_BRAND ?= Lunaris-AOSP
 
@@ -141,7 +145,6 @@ PRODUCT_PACKAGES += \
 WITH_GMS := true
 ifeq ($(WITH_GMS),true)
 $(call inherit-product, vendor/google/overlays/ThemeIcons/config.mk)
-$(call inherit-product, vendor/gms/products/gms.mk)
 endif
 
 # Lineage packages
