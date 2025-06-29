@@ -6,9 +6,7 @@ PRODUCT_SIZE := full
 # Apps
 PRODUCT_PACKAGES += \
     Camelot \
-    Etar \
     Profiles \
-    Recorder \
     Seedvault
 
 ifeq ($(WITH_GMS),false)
