@@ -1,0 +1,18 @@
+# Set lowram options
+ro.lmk.critical_upgrade=true
+ro.lmk.upgrade_pressure=40
+ro.lmk.downgrade_pressure=60
+ro.lmk.kill_heaviest_task=false
+ro.lmk.medium=700
+
+# set threshold to filter unused apps
+pm.dexopt.downgrade_after_inactive_days=10
+
+# Default heap sizes. Allow up to 256m for large heaps to make sure a single app
+# doesn't take all of the RAM.
+dalvik.vm.heapgrowthlimit=128m
+dalvik.vm.heapsize=256m
+dalvik.vm.madvise-random=true
+
+# disable machine learning
+ro.nnapi.extensions.deny_on_product=true
