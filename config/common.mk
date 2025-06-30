@@ -10,6 +10,12 @@ ifeq ($(LUNARIS_BUILD_TYPE),OFFICIAL)
     $(call inherit-product, vendor/lunaris-priv/keys/keys.mk)
 endif
 
+# Low ram profile
+TARGET_USE_LOWRAM_PROFILE ?= false
+ifeq ($(TARGET_USE_LOWRAM_PROFILE),true)
+    $(call inherit-product, vendor/lineage/config/defaults_common.mk)
+endif
+
 PRODUCT_BRAND ?= Lunaris-AOSP
 
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
