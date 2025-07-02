@@ -79,4 +79,6 @@
     <integer name="primary_bouncer_passive_auth_delay">0</integer>
 
     <bool name="config_vibrateOnIconAnimation" translatable="false">false</bool>
+    
+    <bool name="config_turbulenceNoise" translatable="false">false</bool>
 </resources>
