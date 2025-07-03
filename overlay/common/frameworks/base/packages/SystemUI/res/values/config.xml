@@ -64,8 +64,8 @@
     slot. If the user did make a choice, even if the choice is the "None" option, the default is
     ignored. -->
     <string-array name="config_keyguardQuickAffordanceDefaults" translatable="false">
-        <item>bottom_start:flashlight</item>
-        <item>bottom_end:camera</item>
+        <item>bottom_start:camera</item>
+        <item>bottom_end:flashlight</item>
     </string-array>
 
     <!-- Time (in ms) to delay the bouncer views from showing when passive auth may be used for
