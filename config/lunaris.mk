@@ -23,10 +23,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Art
 PRODUCT_SYSTEM_PROPERTIES += \
-    pm.dexopt.post-boot=speed \
-    pm.dexopt.first-boot=speed \
+    pm.dexopt.post-boot=speed-profile \
+    pm.dexopt.first-boot=speed-profile \
     pm.dexopt.boot-after-ota=speed-profile \
-    pm.dexopt.boot-after-mainline-update=speed \
+    pm.dexopt.boot-after-mainline-update=speed-profile \
     pm.dexopt.install=speed-profile \
     pm.dexopt.install-fast=speed \
     pm.dexopt.install-bulk=speed-profile \
@@ -34,10 +34,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
     pm.dexopt.install-bulk-downgraded=speed \
     pm.dexopt.install-bulk-secondary-downgraded=speed \
     pm.dexopt.bg-dexopt=speed \
-    pm.dexopt.ab-ota=speed \
+    pm.dexopt.ab-ota=speed-profile \
     pm.dexopt.inactive=speed \
     pm.dexopt.cmdline=speed \
-    pm.dexopt.first-use=speed \
+    pm.dexopt.first-use=speed-profile \
     pm.dexopt.secondary=speed \
     pm.dexopt.shared=speed \
     pm.dexopt.downgrade_after_inactive_days=20
