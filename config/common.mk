@@ -113,6 +113,11 @@ endif
 ART_BUILD_TARGET_NDEBUG := false
 ART_BUILD_TARGET_DEBUG := false
 
+ifeq ($(TARGET_BUILD_VARIANT),user)
+    PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
+    WITH_DEXPREOPT_DEBUG_INFO := false
+endif
+
 # Do not include art debug targets
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 
