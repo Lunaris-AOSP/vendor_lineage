@@ -21,12 +21,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.input.video_enabled=false
 
-# Art
+# Enable optimized dexopt tuning (default: false)
+TARGET_OPTIMIZED_DEXOPT ?= false
+ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
 PRODUCT_SYSTEM_PROPERTIES += \
-    pm.dexopt.post-boot=speed-profile \
-    pm.dexopt.first-boot=speed-profile \
-    pm.dexopt.boot-after-ota=speed-profile \
-    pm.dexopt.boot-after-mainline-update=speed-profile \
     pm.dexopt.install=speed-profile \
     pm.dexopt.install-fast=speed \
     pm.dexopt.install-bulk=speed-profile \
@@ -34,13 +32,12 @@ PRODUCT_SYSTEM_PROPERTIES += \
     pm.dexopt.install-bulk-downgraded=speed \
     pm.dexopt.install-bulk-secondary-downgraded=speed \
     pm.dexopt.bg-dexopt=speed \
-    pm.dexopt.ab-ota=speed-profile \
     pm.dexopt.inactive=speed \
     pm.dexopt.cmdline=speed \
-    pm.dexopt.first-use=speed-profile \
     pm.dexopt.secondary=speed \
     pm.dexopt.shared=speed \
     pm.dexopt.downgrade_after_inactive_days=20
+endif
 
 # Always preopt extracted APKs to prevent extracting out of the APK for gms
 # modules.
