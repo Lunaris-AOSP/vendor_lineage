@@ -1,7 +1,9 @@
 PRODUCT_PACKAGES += \
     Updater \
     GameSpace \
-    BtHelper
+    BtHelper \
+    LMOFreeform \
+    LMOFreeformSidebar
 
 # DeviceAsWebcam
 ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
