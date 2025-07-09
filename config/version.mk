@@ -3,10 +3,10 @@ PRODUCT_VERSION_MINOR = 0
 
 # Increase EVO Version with each major release.
 LUNARIS_VERSION := 3.0
-LUNARIS_BUILD_TYPE ?= Beta
+LUNARIS_BUILD_TYPE ?= Stable
 
 # Internal version
-LINEAGE_VERSION := Lunaris-AOSP-$(shell date -u +%Y%m%d%H)-$(LINEAGE_BUILD)-$(LUNARIS_VERSION)-$(LUNARIS_BUILD_TYPE)
+LINEAGE_VERSION := Lunaris-AOSP-$(LINEAGE_BUILD)-$(LUNARIS_VERSION)-$(shell date -u +%Y%m%d%H)
 
 # Display version
 LINEAGE_DISPLAY_VERSION := v$(LUNARIS_VERSION)-$(shell date -u +%Y%m%d)
