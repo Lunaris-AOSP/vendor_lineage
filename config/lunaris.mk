@@ -80,17 +80,17 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_MANUFACTURER?=Google \
     persist.sys.pihooks_BRAND?=google \
-    persist.sys.pihooks_PRODUCT?=tangorpro_beta \
-    persist.sys.pihooks_DEVICE?=tangorpro \
-    persist.sys.pihooks_ID?=BP31.250523.006 \
+    persist.sys.pihooks_PRODUCT?=oriole_beta \
+    persist.sys.pihooks_DEVICE?=oriole \
+    persist.sys.pihooks_ID?=BP31.250523.010 \
     persist.sys.pihooks_RELEASE?=16 \
-    persist.sys.pihooks_SECURITY_PATCH?=2025-05-05 \
-    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=21 \
-    persist.sys.pihooks_SDK_INT?=35
+    persist.sys.pihooks_SECURITY_PATCH?=2025-06-05 \
+    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=32 \
+    persist.sys.pihooks_SDK_INT?=36
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/tangorpro_beta/tangorpro:16/BP31.250523.006/13607978:user/release-keys" \
-    PihooksGmsModel="Pixel Tablet"
+    PihooksGmsFp="google/oriole_beta/oriole:16/BP31.250523.010/13667654:user/release-keys" \
+    PihooksGmsModel="Pixel 6"
 
 AXION_CPU_SMALL_CORES ?= 0,1,2,3
 AXION_CPU_BIG_CORES ?= 4,5,6,7
