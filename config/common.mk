@@ -6,7 +6,9 @@ $(call inherit-product, vendor/lineage/config/lunaris.mk)
 $(call inherit-product, vendor/pixel-style/config/common.mk)
 
 # Singing keys
-$(call inherit-product, vendor/lunaris-priv/keys/keys.mk)
+ifeq ($(LUNARIS_BUILD_TYPE),OFFICIAL)
+    $(call inherit-product, vendor/lunaris-priv/keys/keys.mk)
+endif
 
 PRODUCT_BRAND ?= Lunaris-AOSP
 
