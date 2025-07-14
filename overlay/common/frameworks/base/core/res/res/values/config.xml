@@ -711,4 +711,7 @@
     <bool name="config_enableBurnInProtection">true</bool>
 
     <dimen name="config_viewConfigurationTouchSlop">6dp</dimen>
+
+    <!-- Whether the developer option for desktop mode is supported on the current device  -->
+    <bool name="config_isDesktopModeDevOptionSupported">true</bool>
 </resources>
