@@ -80,17 +80,17 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_MANUFACTURER?=Google \
     persist.sys.pihooks_BRAND?=google \
-    persist.sys.pihooks_PRODUCT?=oriole_beta \
-    persist.sys.pihooks_DEVICE?=oriole \
+    persist.sys.pihooks_PRODUCT?=komodo_beta \
+    persist.sys.pihooks_DEVICE?=komodo \
     persist.sys.pihooks_ID?=BP31.250523.010 \
     persist.sys.pihooks_RELEASE?=16 \
     persist.sys.pihooks_SECURITY_PATCH?=2025-06-05 \
-    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=32 \
+    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=35 \
     persist.sys.pihooks_SDK_INT?=36
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/oriole_beta/oriole:16/BP31.250523.010/13667654:user/release-keys" \
-    PihooksGmsModel="Pixel 6"
+    PihooksGmsFp="google/komodo_beta/komodo:16/BP31.250523.010/13667654:user/release-keys" \
+    PihooksGmsModel="Pixel 9 Pro XL"
 
 # Cloned app exemption
 PRODUCT_COPY_FILES += \
