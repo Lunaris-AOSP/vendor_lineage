@@ -14,6 +14,13 @@ ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
         ro.usb.uvc.enabled=true
 endif
 
+# Quick Tap
+TARGET_SUPPORTS_QUICK_TAP ?= true
+ifeq ($(TARGET_SUPPORTS_QUICK_TAP),true)
+PRODUCT_PACKAGES += \
+    ColumbusService
+endif
+
 # Google Overlays
 PRODUCT_PACKAGES += \
     CustomFontPixelLauncherOverlay
