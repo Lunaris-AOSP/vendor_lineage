@@ -67,6 +67,20 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.arm64.memtag.app.com.android.nfc=off \
     persist.arm64.memtag.process.system_server=off
 
+# Quick Switch
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+ifeq ($(TARGET_DEFAULT_PIXEL_LAUNCHER), true)
+# Pixel Launcher
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0 \
+    persist.sys.quickswitch_pixel_shipped=1
+else
+# Launcher3
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0 \
+    persist.sys.quickswitch_pixel_shipped=0
+endif
+
 # Enable blur
 TARGET_ENABLE_BLUR ?= true
 ifeq ($(TARGET_ENABLE_BLUR),true)
