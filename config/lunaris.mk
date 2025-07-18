@@ -3,7 +3,8 @@ PRODUCT_PACKAGES += \
     GameSpace \
     BtHelper \
     LMOFreeform \
-    LMOFreeformSidebar
+    LMOFreeformSidebar \
+    OmniJaws
 
 # DeviceAsWebcam
 ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
