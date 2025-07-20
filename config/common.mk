@@ -217,11 +217,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
 
-ifeq ($(WITH_GMS),false)
-# Storage manager
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.storage_manager.enabled=true
-endif
 
 # Default wifi country code
 PRODUCT_SYSTEM_PROPERTIES += \
