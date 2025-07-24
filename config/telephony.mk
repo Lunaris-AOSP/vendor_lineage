@@ -1,4 +1,5 @@
 # GMS
+WITH_GMS ?= true
 ifeq ($(WITH_GMS),true)
 WITH_GMS_COMMS_SUITE := true
 endif

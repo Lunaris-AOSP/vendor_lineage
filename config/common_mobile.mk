@@ -9,6 +9,7 @@ include vendor/lineage/config/aosp_audio.mk
 include vendor/lineage/config/lineage_audio.mk
 
 # Default notification/alarm sounds
+WITH_GMS ?= true
 ifeq ($(WITH_GMS),true)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.notification_sound=Eureka.ogg \

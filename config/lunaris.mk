@@ -70,6 +70,8 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 
 # Quick Switch
 TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
+WITH_GMS ?= true
+ifeq ($(WITH_GMS),true)
 ifeq ($(TARGET_DEFAULT_PIXEL_LAUNCHER), true)
 # Pixel Launcher
 PRODUCT_SYSTEM_PROPERTIES += \
@@ -80,6 +82,10 @@ else
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=0 \
     persist.sys.quickswitch_pixel_shipped=1
+endif
+else
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.default_launcher=0
 endif
 
 # Enable blur

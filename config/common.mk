@@ -3,7 +3,7 @@ $(call inherit-product, vendor/extras/config.mk)
 $(call inherit-product, vendor/fontbox/config.mk)
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product, vendor/lineage/config/lunaris.mk)
-$(call inherit-product, vendor/pixel-style/config/common.mk)
+$(call inherit-product, vendor/google/overlays/ThemeIcons/config.mk)
 
 # Singing keys
 ifeq ($(LUNARIS_BUILD_TYPE),OFFICIAL)
@@ -144,12 +144,6 @@ endif
 # Build Manifest
 PRODUCT_PACKAGES += \
     build-manifest
-
-# Pixel additions
-WITH_GMS := true
-ifeq ($(WITH_GMS),true)
-$(call inherit-product, vendor/google/overlays/ThemeIcons/config.mk)
-endif
 
 # Lineage packages
 ifeq ($(PRODUCT_IS_ATV),)
