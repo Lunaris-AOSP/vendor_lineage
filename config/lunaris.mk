@@ -36,7 +36,7 @@ TARGET_OPTIMIZED_DEXOPT ?= false
 ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
 PRODUCT_SYSTEM_PROPERTIES += \
     pm.dexopt.install=speed-profile \
-    pm.dexopt.install-fast=speed \
+    pm.dexopt.install-fast=speed-profile \
     pm.dexopt.install-bulk=speed-profile \
     pm.dexopt.install-bulk-secondary=speed \
     pm.dexopt.install-bulk-downgraded=speed \
