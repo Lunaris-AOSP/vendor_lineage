@@ -265,6 +265,26 @@ PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.feature.day_night_mode_enabled=true
 endif
 
+# GMS
+WITH_GMS ?= true
+ifeq ($(WITH_GMS),true)
+  ifeq ($(TARGET_USES_OMNI_GAPPS),true)
+    $(call inherit-product, vendor/gms/gms_pico.mk)
+    $(call inherit-product, vendor/pixel-style/config/common.mk)
+    LUNARIS_PACKAGE_TYPE := Omni
+  else ifeq ($(TARGET_USES_CORE_GAPPS),true)
+    $(call inherit-product, vendor/gms/gms_mini.mk)
+    $(call inherit-product, vendor/pixel-style/config/common.mk)
+    LUNARIS_PACKAGE_TYPE := Core
+  else
+    $(call inherit-product, vendor/gms/gms_full.mk)
+    $(call inherit-product, vendor/pixel-style/config/common.mk)
+    LUNARIS_PACKAGE_TYPE := Gapps
+  endif
+else
+  LUNARIS_PACKAGE_TYPE := Vanilla
+endif
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay/no-rro
 PRODUCT_PACKAGE_OVERLAYS += \
     vendor/lineage/overlay/common \
