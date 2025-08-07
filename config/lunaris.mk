@@ -1,10 +1,15 @@
 PRODUCT_PACKAGES += \
-    Updater \
     GameSpace \
     BtHelper \
     LMOFreeform \
     LMOFreeformSidebar \
     OmniJaws
+
+# Updater
+ifeq ($(WITH_GMS),true)
+    PRODUCT_PACKAGES += \
+        Updater
+endif
 
 # DeviceAsWebcam
 ifeq ($(TARGET_BUILD_DEVICE_AS_WEBCAM), true)
