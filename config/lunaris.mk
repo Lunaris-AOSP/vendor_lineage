@@ -138,6 +138,8 @@ AXION_CPU_LIMIT_UI ?= 0-4
 AXION_CPU_DISPLAY ?= 4-7
 AXION_CPU_AUDIO ?= 1-2
 
+BYPASS_CHARGE_SUPPORTED ?= false
+
 DEX2OAT_CORES ?= 0,1,2,3,4,5
 
 # AxionOS properties
@@ -150,7 +152,8 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.axion_cpu_limit_ui=$(AXION_CPU_LIMIT_UI) \
     persist.sys.axion_cpu_unlimit_ui=$(AXION_CPU_UNLIMIT_UI) \
     persist.sys.axion_cpu_audio=$(AXION_CPU_AUDIO) \
-    persist.sys.axion_cpu_display=$(AXION_CPU_DISPLAY)
+    persist.sys.axion_cpu_display=$(AXION_CPU_DISPLAY) \
+    persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED)
 
 # dex2oat
 PRODUCT_SYSTEM_PROPERTIES += \
