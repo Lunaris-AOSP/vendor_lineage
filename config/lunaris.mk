@@ -121,17 +121,17 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_MANUFACTURER?=Google \
     persist.sys.pihooks_BRAND?=google \
-    persist.sys.pihooks_PRODUCT?=komodo_beta \
-    persist.sys.pihooks_DEVICE?=komodo \
-    persist.sys.pihooks_ID?=BP31.250523.010 \
+    persist.sys.pihooks_PRODUCT?=tokay_beta \
+    persist.sys.pihooks_DEVICE?=tokay \
+    persist.sys.pihooks_ID?=BP31.250610.004 \
     persist.sys.pihooks_RELEASE?=16 \
-    persist.sys.pihooks_SECURITY_PATCH?=2025-06-05 \
-    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=35 \
+    persist.sys.pihooks_SECURITY_PATCH?=2025-07-05 \
+    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=32 \
     persist.sys.pihooks_SDK_INT?=36
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/komodo_beta/komodo:16/BP31.250523.010/13667654:user/release-keys" \
-    PihooksGmsModel="Pixel 9 Pro XL"
+    PihooksGmsFp="google/tokay_beta/tokay:16/BP31.250610.004/13769805:user/release-keys" \
+    PihooksGmsModel="Pixel 9"
 
 AXION_CPU_SMALL_CORES ?= 0,1,2,3
 AXION_CPU_BIG_CORES ?= 4,5,6,7
