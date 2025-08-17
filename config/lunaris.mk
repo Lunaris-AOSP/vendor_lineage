@@ -3,7 +3,8 @@ PRODUCT_PACKAGES += \
     BtHelper \
     LMOFreeform \
     LMOFreeformSidebar \
-    OmniJaws
+    OmniJaws \
+    OmniStyle
 
 # Updater
 ifeq ($(WITH_GMS),true)
