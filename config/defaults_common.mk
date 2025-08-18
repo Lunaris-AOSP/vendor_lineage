@@ -30,5 +30,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     LowProfileOverlay
 
-TARGET_SYSTEM_PROP += \
+TARGET_PRODUCT_PROP += \
     vendor/lineage/config/defaults_common.prop
