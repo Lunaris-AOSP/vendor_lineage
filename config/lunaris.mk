@@ -146,6 +146,9 @@ BYPASS_CHARGE_SUPPORTED ?= false
 
 DEX2OAT_CORES ?= 0,1,2,3,4,5
 
+# uclamp properties
+TARGET_PRODUCT_PROP += ro.surface_flinger.uclamp.min=165
+
 # AxionOS properties
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.axion_cpu_big=$(AXION_CPU_BIG_CORES) \
