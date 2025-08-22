@@ -8,9 +8,6 @@ persist.sys.nmm.low_adj=201
 persist.sys.nmm.mid_adj=601
 persist.sys.nmm.high_adj=801
 
-# set threshold to filter unused apps
-pm.dexopt.downgrade_after_inactive_days=10
-
 # Default heap sizes. Allow up to 256m for large heaps to make sure a single app
 # doesn't take all of the RAM.
 dalvik.vm.heapgrowthlimit=128m
@@ -25,4 +22,3 @@ ro.nnapi.extensions.deny_on_product=true
 
 # disable RescueParty 
 persist.sys.disable_rescue=true
-
