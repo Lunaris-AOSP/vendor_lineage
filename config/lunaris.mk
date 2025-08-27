@@ -224,3 +224,9 @@ else
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.default_launcher=0
 endif
+
+PERF_ANIM_OVERRIDE ?= false
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE)
+
