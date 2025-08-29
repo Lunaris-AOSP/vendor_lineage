@@ -157,7 +157,7 @@ DEX2OAT_THREADS ?= 5
 
 # uclamp properties
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.surface_flinger.uclamp.min=165 \
+    ro.surface_flinger.uclamp.min=100 \
     ro.config.per_app_memcg=true
 
 # AxionOS properties
