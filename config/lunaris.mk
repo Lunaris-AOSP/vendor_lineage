@@ -135,7 +135,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_RELEASE?=16 \
     persist.sys.pihooks_SECURITY_PATCH?=2025-07-05 \
     persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=32 \
-    persist.sys.pihooks_SDK_INT?=36
+    persist.sys.pihooks_SDK_INT?=36 \
+    persist.sys.pixelprops.gms=true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PihooksGmsFp="google/husky_beta/husky:16/BP31.250610.009/13905196:user/release-keys" \
