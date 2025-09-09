@@ -162,8 +162,12 @@ DEX2OAT_THREADS ?= 5
 
 # uclamp properties
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.surface_flinger.uclamp.min=10 \
-    ro.config.per_app_memcg=true
+    ro.lmk.critical_upgrade=true \
+    ro.lmk.upgrade_pressure=40 \
+    ro.lmk.downgrade_pressure=60 \
+    ro.lmk.kill_heaviest_task=false \
+    ro.config.per_app_memcg=true \
+    ro.surface_flinger.uclamp.min=1
 
 # AxionOS properties
 PRODUCT_SYSTEM_PROPERTIES += \
