@@ -157,6 +157,8 @@ LUNARIS_CPU_DISPLAY ?= 0-5
 
 BYPASS_CHARGE_SUPPORTED ?= false
 
+PERF_ANIM_OVERRIDE ?= false
+
 DEX2OAT_CORES ?= 0,1,2,3,4,5
 DEX2OAT_THREADS ?= 5
 
@@ -180,7 +182,8 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.axion_cpu_limit_ui=$(LUNARIS_CPU_LIMIT_UI) \
     persist.sys.axion_cpu_unlimit_ui=$(LUNARIS_ALL_CORES) \
     persist.sys.axion_cpu_display=$(LUNARIS_CPU_DISPLAY) \
-    persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED)
+    persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
+    persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE)
 
 # dex2oat
 PRODUCT_SYSTEM_PROPERTIES += \
