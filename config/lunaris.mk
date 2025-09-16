@@ -145,9 +145,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_PACKAGES += \
     CertifiedKeyboxOverlay
 
-LUNARIS_CPU_SMALL_CORES ?= 0,1,2,3
-LUNARIS_CPU_BIG_CORES ?= 4,5,6,7
-LUNARIS_ALL_CORES ?= 0-7
 LUNARIS_CPU_BG ?= 0-2
 LUNARIS_CPU_SYS_BG ?= 0-3
 LUNARIS_CPU_FG ?= 0-7
@@ -173,14 +170,11 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # AxionOS properties
 PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.axion_cpu_big=$(LUNARIS_CPU_BIG_CORES) \
-    persist.sys.axion_cpu_small=$(LUNARIS_CPU_SMALL_CORES) \
     persist.sys.axion_cpu_bg=$(LUNARIS_CPU_BG) \
     persist.sys.axion_cpu_limit_bg=$(LUNARIS_CPU_LIMIT_BG) \
     persist.sys.axion_cpu_sys_bg=$(LUNARIS_CPU_SYS_BG) \
     persist.sys.axion_cpu_fg=$(LUNARIS_CPU_FG) \
     persist.sys.axion_cpu_limit_ui=$(LUNARIS_CPU_LIMIT_UI) \
-    persist.sys.axion_cpu_unlimit_ui=$(LUNARIS_ALL_CORES) \
     persist.sys.axion_cpu_display=$(LUNARIS_CPU_DISPLAY) \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
     persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE)
