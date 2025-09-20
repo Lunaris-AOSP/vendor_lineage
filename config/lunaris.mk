@@ -55,6 +55,10 @@ PRODUCT_SYSTEM_PROPERTIES += \
     pm.dexopt.downgrade_after_inactive_days=20
 endif
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.minidebuginfo=false \
+    dalvik.vm.dex2oat-minidebuginfo=false
+
 # Always preopt extracted APKs to prevent extracting out of the APK for gms
 # modules.
 PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
@@ -66,18 +70,15 @@ PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 # the size of the system image. This has no bearing on stack traces, but will
 # leave less information available via JDWP.
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
+USE_DEX2OAT_DEBUG := false
 
 # Speed profile services and wifi-service to reduce RAM and storage.
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
-OVERRIDE_DISABLE_DEXOPT_ALL := false
 
 # Disable async MTE on a few processes
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    persist.arm64.memtag.app.com.android.se=off \
-    persist.arm64.memtag.app.com.google.android.bluetooth=off \
-    persist.arm64.memtag.app.com.android.nfc=off \
-    persist.arm64.memtag.process.system_server=off
+    persist.arm64.memtag.system_server=off
 
 # Quick Switch
 TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
@@ -145,37 +146,17 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_PACKAGES += \
     CertifiedKeyboxOverlay
 
-LUNARIS_CPU_BG ?= 0-2
-LUNARIS_CPU_SYS_BG ?= 0-3
-LUNARIS_CPU_FG ?= 0-7
-LUNARIS_CPU_LIMIT_BG ?= 0-1
-LUNARIS_CPU_LIMIT_UI ?= 0-2
-LUNARIS_CPU_DISPLAY ?= 0-5
-
 BYPASS_CHARGE_SUPPORTED ?= false
 
 PERF_ANIM_OVERRIDE ?= false
 
-DEX2OAT_CORES ?= 0,1,2,3,4,5
-DEX2OAT_THREADS ?= 5
-
 # uclamp properties
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.lmk.critical_upgrade=true \
-    ro.lmk.upgrade_pressure=40 \
-    ro.lmk.downgrade_pressure=60 \
-    ro.lmk.kill_heaviest_task=false \
     ro.config.per_app_memcg=true \
-    ro.surface_flinger.uclamp.min=1
+    ro.surface_flinger.uclamp.min=165
 
 # AxionOS properties
 PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.axion_cpu_bg=$(LUNARIS_CPU_BG) \
-    persist.sys.axion_cpu_limit_bg=$(LUNARIS_CPU_LIMIT_BG) \
-    persist.sys.axion_cpu_sys_bg=$(LUNARIS_CPU_SYS_BG) \
-    persist.sys.axion_cpu_fg=$(LUNARIS_CPU_FG) \
-    persist.sys.axion_cpu_limit_ui=$(LUNARIS_CPU_LIMIT_UI) \
-    persist.sys.axion_cpu_display=$(LUNARIS_CPU_DISPLAY) \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
     persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE)
 
