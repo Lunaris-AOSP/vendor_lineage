@@ -38,6 +38,10 @@ endif
 PRODUCT_PACKAGES += \
     Launcher3Overlay
 
+# Credential storage
+PRODUCT_PACKAGES += \
+    android.software.credentials.prebuilt.xml
+
 # Legal
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.lineagelegal.url=https://lineageos.org/legal
