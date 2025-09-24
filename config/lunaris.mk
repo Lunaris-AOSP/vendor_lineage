@@ -215,3 +215,19 @@ PRODUCT_PACKAGES += \
     WallpaperPicker2Overlay \
     WallpaperPicker2PixelOverlay
 
+# BuildFingerprint spoof to fix RCS/Wallet
+# Applies to all devices EXCEPT currently-supported Pixels (they don't need it)
+TARGET_ENABLE_FP_OVERRIDE ?= true
+ifeq ($(TARGET_ENABLE_FP_OVERRIDE),true)
+ifeq ($(filter $(LINEAGE_BUILD), \
+    cheetah panther lynx \
+    husky shiba akita felix tangorpro \
+    tokay caiman komodo comet tegu \
+    mustang blazer frankel rango \
+    stallion yogi kodiak grizzly cubs \
+    ),)
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BuildFingerprint=google/bluejay_beta/bluejay:CANARY/ZP11.260918.007/16484274:user/release-keys
+endif
+endif
+
