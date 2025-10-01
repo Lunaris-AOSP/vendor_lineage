@@ -162,7 +162,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # AxionOS properties
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
-    persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE)
+    persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE) \
+    persist.sys.axion_gpu_freqs_path=$(GPU_FREQS_PATH) \
+    persist.sys.axion_gpu_minfreq_file=$(GPU_MIN_FREQ_PATH)
 
 # dex2oat
 PRODUCT_SYSTEM_PROPERTIES += \
