@@ -166,6 +166,11 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.axion_gpu_freqs_path=$(GPU_FREQS_PATH) \
     persist.sys.axion_gpu_minfreq_file=$(GPU_MIN_FREQ_PATH)
 
+ifeq ($(PERF_ANIM_OVERRIDE),true)
+PRODUCT_PRODUCT_PROPERTIES += \
+    debug.sf.predict_hwc_composition_strategy=0
+endif
+
 # dex2oat
 PRODUCT_SYSTEM_PROPERTIES += \
     dalvik.vm.dex2oat-threads=$(DEX2OAT_THREADS) \
