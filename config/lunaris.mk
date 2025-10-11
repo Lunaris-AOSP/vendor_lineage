@@ -1,4 +1,5 @@
 PRODUCT_PACKAGES += \
+    AxionWidgets \
     GameSpace \
     BtHelper \
     LMOFreeform \
