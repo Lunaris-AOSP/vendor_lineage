@@ -6,6 +6,7 @@ PRODUCT_SIZE := full
 # Apps
 PRODUCT_PACKAGES += \
     Camelot \
+    Etar \
     Profiles \
     Seedvault
 
