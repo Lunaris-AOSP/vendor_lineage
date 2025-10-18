@@ -155,6 +155,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 PRODUCT_PACKAGES += \
     CertifiedKeyboxOverlay
 
+PRODUCT_PRODUCT_PROPERTIES += \
+    remote_provisioning.enable_rkpd=true \
+    remote_provisioning.hostname=remoteprovisioning.googleapis.com
+
 BYPASS_CHARGE_SUPPORTED ?= false
 
 PERF_ANIM_OVERRIDE ?= false
