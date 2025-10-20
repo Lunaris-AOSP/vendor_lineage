@@ -168,6 +168,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.per_app_memcg=true \
     ro.surface_flinger.uclamp.min=165
 
+# UDFPS properties
+PRODUCT_SYSTEM_PROPERTIES += \
+    lunaris_udfps_custom=$(TARGET_CUSTOM_UDFPS)
+
 # AxionOS properties
 PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
