@@ -42,25 +42,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.input.video_enabled=false
 
-# Enable optimized dexopt tuning (default: false)
-TARGET_OPTIMIZED_DEXOPT ?= false
-ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
-PRODUCT_SYSTEM_PROPERTIES += \
-    pm.dexopt.install=speed-profile \
-    pm.dexopt.install-fast=speed-profile \
-    pm.dexopt.install-bulk=speed-profile \
-    pm.dexopt.install-bulk-secondary=speed \
-    pm.dexopt.install-bulk-downgraded=speed \
-    pm.dexopt.install-bulk-secondary-downgraded=speed \
-    pm.dexopt.bg-dexopt=speed \
-    pm.dexopt.inactive=speed \
-    pm.dexopt.cmdline=speed \
-    pm.dexopt.secondary=speed \
-    pm.dexopt.shared=speed \
-    pm.dexopt.downgrade_after_inactive_days=20
-endif
+PRODUCT_PRODUCT_PROPERTIES += \
+    pm.dexopt.downgrade_after_inactive_days=10 \
+    dalvik.vm.enable_pr_dexopt=true \
+    dalvik.vm.finalizer-timeout-ms=40000 \
+    dalvik.vm.ps-min-first-save-ms=150000
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.image-dex2oat-filter=speed \
+    dalvik.vm.dex2oat-swap=false \
+    dalvik.vm.foreground-heap-growth-multiplier=2.0 \
     dalvik.vm.minidebuginfo=false \
     dalvik.vm.dex2oat-minidebuginfo=false
 
@@ -79,7 +71,19 @@ USE_DEX2OAT_DEBUG := false
 
 # Speed profile services and wifi-service to reduce RAM and storage.
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
+PRODUCT_DEX_PREOPT_GENERATE_DM_FILES := true
+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := verify
+
+PRODUCT_DEX_PREOPT_BOOT_FLAGS += \
+    --compiler-filter=speed \
+    --no-watch-dog
+
+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS += \
+    --compiler-filter=speed \
+    --no-watch-dog
+    
+$(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
+$(call add-product-dex-preopt-module-config,wifi-service,--compiler-filter=speed)
 
 # Disable async MTE on a few processes
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
@@ -165,7 +169,6 @@ PERF_ANIM_OVERRIDE ?= false
 
 # uclamp properties
 PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.per_app_memcg=true \
     ro.surface_flinger.uclamp.min=165
 
 # UDFPS properties
