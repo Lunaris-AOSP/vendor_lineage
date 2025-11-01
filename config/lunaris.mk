@@ -166,6 +166,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 BYPASS_CHARGE_SUPPORTED ?= false
 
 PERF_ANIM_OVERRIDE ?= false
+TARGET_USES_SLMK ?= false
+TARGET_SLMK_DEBUG ?= false
 
 # uclamp properties
 PRODUCT_PRODUCT_PROPERTIES += \
@@ -180,7 +182,9 @@ PRODUCT_SYSTEM_PROPERTIES += \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
     persist.sys.activity_anim_perf_override=$(PERF_ANIM_OVERRIDE) \
     persist.sys.axion_gpu_freqs_path=$(GPU_FREQS_PATH) \
-    persist.sys.axion_gpu_minfreq_file=$(GPU_MIN_FREQ_PATH)
+    persist.sys.axion_gpu_minfreq_file=$(GPU_MIN_FREQ_PATH) \
+    ro.lmk.use_simple_lmk=$(TARGET_USES_SLMK) \
+    ro.lmk.slmk_debug=$(TARGET_SLMK_DEBUG)
 
 ifeq ($(PERF_ANIM_OVERRIDE),true)
 PRODUCT_PRODUCT_PROPERTIES += \
