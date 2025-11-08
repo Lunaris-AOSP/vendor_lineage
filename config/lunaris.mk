@@ -4,6 +4,7 @@ PRODUCT_PACKAGES += \
     BtHelper \
     LMOFreeform \
     LMOFreeformSidebar \
+    LMOSystemUIClock \
     OmniJaws \
     OmniStyle
 
