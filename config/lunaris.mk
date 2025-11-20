@@ -91,7 +91,7 @@ PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
 PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/boot/boot-image-profile.txt
 
 # Quick Switch
-TARGET_DEFAULT_PIXEL_LAUNCHER ?= true
+TARGET_DEFAULT_PIXEL_LAUNCHER ?= false
 WITH_GMS ?= true
 ifeq ($(WITH_GMS),true)
 ifeq ($(TARGET_DEFAULT_PIXEL_LAUNCHER), true)
