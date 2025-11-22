@@ -66,6 +66,42 @@ OVERRIDE_DISABLE_DEXOPT_ALL := false
 # Speed profile services and wifi-service to reduce RAM and storage.
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
+TARGET_OPTIMIZED_DEXOPT ?= false
+ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
+    PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
+    PRODUCT_SYSTEM_PROPERTIES += \
+        pm.dexopt.post-boot=speed-profile \
+        pm.dexopt.first-boot=speed-profile \
+        pm.dexopt.boot-after-ota=speed-profile \
+        pm.dexopt.boot-after-mainline-update=speed \
+        pm.dexopt.install=speed-profile \
+        pm.dexopt.install-fast=speed \
+        pm.dexopt.install-bulk=speed-profile \
+        pm.dexopt.install-bulk-secondary=speed \
+        pm.dexopt.install-bulk-downgraded=speed \
+        pm.dexopt.install-bulk-secondary-downgraded=speed \
+        pm.dexopt.bg-dexopt=speed \
+        pm.dexopt.ab-ota=speed-profile \
+        pm.dexopt.inactive=speed \
+        pm.dexopt.cmdline=speed \
+        pm.dexopt.first-use=speed-profile \
+        pm.dexopt.secondary=speed-profile \
+        pm.dexopt.shared=speed \
+        dalvik.vm.dex2oat-filter=speed \
+        dalvik.vm.image-dex2oat-filter=speed \
+        dalvik.vm.foreground-heap-growth-multiplier=2.0
+
+    PRODUCT_DEX_PREOPT_DEFAULT_FLAGS += \
+        --compiler-filter=speed \
+        --no-watch-dog
+
+    $(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
+    $(call add-product-dex-preopt-module-config,wifi-service,--compiler-filter=speed)
+
+    DEX2OAT_THREADS := 8
+    DEX2OAT_CORES := 0-7
+endif
+
 # Disable async MTE on a few processes
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.arm64.memtag.system_server=off
