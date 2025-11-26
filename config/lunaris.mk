@@ -160,18 +160,18 @@ endif
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_MANUFACTURER?=Google \
     persist.sys.pihooks_BRAND?=google \
-    persist.sys.pihooks_PRODUCT?=akita_beta \
-    persist.sys.pihooks_DEVICE?=akita \
-    persist.sys.pihooks_ID?=BP41.250725.006 \
+    persist.sys.pihooks_PRODUCT?=comet_beta \
+    persist.sys.pihooks_DEVICE?=comet \
+    persist.sys.pihooks_ID?=BP41.250916.015 \
     persist.sys.pihooks_RELEASE?=16 \
-    persist.sys.pihooks_SECURITY_PATCH?=2025-08-05 \
+    persist.sys.pihooks_SECURITY_PATCH?=2025-10-05 \
     persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=32 \
     persist.sys.pihooks_SDK_INT?=36 \
     persist.sys.pixelprops.gms=true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/akita_beta/akita:Baklava/BP41.250725.006/13939570:user/release-keys" \
-    PihooksGmsModel="Pixel 8a"
+    PihooksGmsFp="google/comet_beta/comet:16/BP41.250916.015/14394230:user/release-keys" \
+    PihooksGmsModel="Pixel 10 Pro Fold"
 
 PRODUCT_PACKAGES += \
     CertifiedKeyboxOverlay
