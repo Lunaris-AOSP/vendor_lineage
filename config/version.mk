@@ -2,7 +2,7 @@ PRODUCT_VERSION_MAJOR = 16
 PRODUCT_VERSION_MINOR = 0
 
 # Increase EVO Version with each major release.
-LUNARIS_VERSION := 3.5
+LUNARIS_VERSION := 3.6
 LUNARIS_BUILD_TYPE ?= Community
 
 # Internal version
