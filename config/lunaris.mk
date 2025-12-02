@@ -173,9 +173,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PihooksGmsFp="google/comet_beta/comet:16/BP41.250916.015/14394230:user/release-keys" \
     PihooksGmsModel="Pixel 10 Pro Fold"
 
-PRODUCT_PACKAGES += \
-    CertifiedKeyboxOverlay
-
 PRODUCT_PRODUCT_PROPERTIES += \
     remote_provisioning.enable_rkpd=true \
     remote_provisioning.hostname=remoteprovisioning.googleapis.com
