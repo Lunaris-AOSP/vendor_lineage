@@ -73,7 +73,7 @@ ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
         pm.dexopt.post-boot=speed-profile \
         pm.dexopt.first-boot=speed-profile \
         pm.dexopt.boot-after-ota=speed-profile \
-        pm.dexopt.boot-after-mainline-update=speed \
+        pm.dexopt.boot-after-mainline-update=speed-profile \
         pm.dexopt.install=speed-profile \
         pm.dexopt.install-fast=speed \
         pm.dexopt.install-bulk=speed-profile \
@@ -89,7 +89,9 @@ ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
         pm.dexopt.shared=speed \
         dalvik.vm.dex2oat-filter=speed \
         dalvik.vm.image-dex2oat-filter=speed \
-        dalvik.vm.foreground-heap-growth-multiplier=2.0
+        dalvik.vm.foreground-heap-growth-multiplier=2.0 \
+        dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6 \
+        dalvik.vm.dex2oat-threads=6
 
     PRODUCT_DEX_PREOPT_DEFAULT_FLAGS += \
         --compiler-filter=speed \
@@ -98,8 +100,6 @@ ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
     $(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
     $(call add-product-dex-preopt-module-config,wifi-service,--compiler-filter=speed)
 
-    DEX2OAT_THREADS := 8
-    DEX2OAT_CORES := 0-7
 endif
 
 # Disable async MTE on a few processes
@@ -204,10 +204,3 @@ ifeq ($(PERF_ANIM_OVERRIDE),true)
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.predict_hwc_composition_strategy=0
 endif
-
-# dex2oat
-PRODUCT_SYSTEM_PROPERTIES += \
-    dalvik.vm.dex2oat-threads=$(DEX2OAT_THREADS) \
-    dalvik.vm.restore-dex2oat-threads=$(DEX2OAT_THREADS) \
-    dalvik.vm.dex2oat-cpu-set=$(DEX2OAT_CORES) \
-    dalvik.vm.restore-dex2oat-cpu-set=$(DEX2OAT_CORES)
