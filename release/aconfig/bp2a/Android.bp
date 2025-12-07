@@ -27,5 +27,6 @@ aconfig_value_set {
         "aconfig-values-bp2a-com.android.wallpaper-all",
         "aconfig-values-bp2a-android.security-all",
         "aconfig-values-bp2a-android.media.tv.flags-all",
+        "aconfig-values-bp2a-android.content.pm-all",
     ],
 }
