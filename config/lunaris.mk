@@ -68,21 +68,21 @@ PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
 
 TARGET_OPTIMIZED_DEXOPT ?= false
 ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
-    PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
+    PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed-profile
     PRODUCT_SYSTEM_PROPERTIES += \
         pm.dexopt.post-boot=speed-profile \
-        pm.dexopt.first-boot=speed-profile \
-        pm.dexopt.boot-after-ota=speed-profile \
-        pm.dexopt.boot-after-mainline-update=speed-profile \
+        pm.dexopt.first-boot=verify \
+        pm.dexopt.boot-after-ota=verify \
+        pm.dexopt.boot-after-mainline-update=verify \
         pm.dexopt.install=speed-profile \
-        pm.dexopt.install-fast=speed \
+        pm.dexopt.install-fast=speed-profile \
         pm.dexopt.install-bulk=speed-profile \
         pm.dexopt.install-bulk-secondary=speed \
         pm.dexopt.install-bulk-downgraded=speed \
         pm.dexopt.install-bulk-secondary-downgraded=speed \
         pm.dexopt.bg-dexopt=speed \
         pm.dexopt.ab-ota=speed-profile \
-        pm.dexopt.inactive=speed \
+        pm.dexopt.inactive=verify \
         pm.dexopt.cmdline=speed \
         pm.dexopt.first-use=speed-profile \
         pm.dexopt.secondary=speed-profile \
