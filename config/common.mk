@@ -273,7 +273,7 @@ $(call inherit-product, vendor/lineage/audio/audio.mk)
 # SetupWizard
 ifneq ($(WITH_GMS), true)
 PRODUCT_PRODUCT_PROPERTIES += \
-    setupwizard.theme=glif_v4 \
+    setupwizard.theme=glif_expressive \
     setupwizard.feature.day_night_mode_enabled=true
 endif
 
