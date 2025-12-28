@@ -20,8 +20,23 @@
         <component class=".systemupdate.SystemUpdateSettingsContentProvider" enabled="false" />
     </component-override>
 
-    <component-override package="com.google.android.dialer">
-        <component class=".rtt.settings.impl.gateway.RttSettingsDeepLink" enabled="false" />
+    <component-override package="com.google.android.googlequicksearchbox">
+        <component class=".OneSearchAimActivity" enabled="true" />
+    </component-override>
+    
+    <component-override package="com.google.android.as">
+        <component class="com.google.intelligence.sense.ambientmusic.history.HistoryContentProvider" enabled="false" />
+        <component class="com.google.intelligence.sense.ambientmusic.history.HistoryActivity" enabled="false" />
+        <component class="com.google.intelligence.sense.ambientmusic.history.AddShortcutActivity" enabled="false" />
+        <component class="com.google.intelligence.sense.ambientmusic.AmbientMusicSetupWizardActivity" enabled="false" />
+        <component class="com.google.intelligence.sense.ambientmusic.AmbientMusicSettingsActivity" enabled="false" />
+        <component class="com.google.intelligence.sense.ambientmusic.AmbientMusicNotificationsSettingsActivity" enabled="false" />
+        <component class="com.google.intelligence.sense.ambientmusic.DefaultMusicPlayerSettingActivity" enabled="false" />
+        <component class="com.google.android.apps.miphone.aiai.translate.settings.settingsui.AutoTranslateSettingPortalActivity" enabled="false" />
+        <component class="com.google.android.apps.miphone.aiai.translate.settings.settingsui.AutoTranslateSettingPreferenceActivity" enabled="false" />
+        <component class="com.google.android.apps.miphone.aiai.translate.settings.settingsui.AutoTranslateSetupLanguageActivity" enabled="false" />
+        <component class="com.google.android.apps.miphone.aiai.translate.settings.settingsui.SettingsSummaryContentProvider" enabled="false" />
+        <component class="com.google.android.apps.miphone.aiai.translate.setupui.TranslateSetupActivity" enabled="false" />
     </component-override>
 
     <component-override package="com.google.android.gms">
