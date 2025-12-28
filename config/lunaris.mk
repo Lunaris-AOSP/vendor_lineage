@@ -231,3 +231,9 @@ ifeq ($(SURFACE_FLINGER_BOOST),true)
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.surface_flinger.uclamp.min=180
 endif
+
+# Google Wallpaper Overlays
+PRODUCT_PACKAGES += \
+    WallpaperPicker2Overlay \
+    WallpaperPicker2PixelOverlay
+
