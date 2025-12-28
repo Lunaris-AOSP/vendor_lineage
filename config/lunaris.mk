@@ -1,5 +1,6 @@
 PRODUCT_PACKAGES += \
     AxionWidgets \
+    BatteryStatsViewer \
     GameSpace \
     BtHelper \
     LMOFreeform \
