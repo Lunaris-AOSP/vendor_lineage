@@ -166,3 +166,7 @@ include vendor/lunaris-priv/keys/keys.mk
 else
 -include vendor/lunaris-priv/keys/keys.mk
 endif
+
+# sound
+PRODUCT_PRODUCT_PROPERTIES += \
+    audio.safemedia.bypass=1
