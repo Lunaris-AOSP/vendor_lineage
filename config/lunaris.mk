@@ -90,7 +90,7 @@ ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
         pm.dexopt.shared=speed \
         dalvik.vm.dex2oat-filter=speed \
         dalvik.vm.image-dex2oat-filter=speed \
-        dalvik.vm.foreground-heap-growth-multiplier=2.0 \
+        dalvik.vm.foreground-heap-growth-multiplier=1.3 \
         dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6 \
         dalvik.vm.dex2oat-threads=6
 
