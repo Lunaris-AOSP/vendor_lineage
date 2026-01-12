@@ -133,33 +133,10 @@ ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
 include vendor/lineage/config/lineage_sdk_common.mk
 endif
 
-ART_BUILD_TARGET_DEBUG := false
-ART_BUILD_HOST_DEBUG := false
-
-# Flags
-ifeq ($(TARGET_BUILD_VARIANT), user)
-    # Strip the local variable table and the local variable type table to reduce
-    # the size of the system image. This has no bearing on stack traces, but will
-    # leave less information available via JDWP.
-    PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
-    # Disable dexpreopt debug info
-    WITH_DEXPREOPT_DEBUG_INFO := false
-    # Reduce system server verbosity
-    PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
-    # Don't include art debug targets
-    PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
-    # Always preopt extracted APKs to prevent extracting out of the APK for gms
-    # modules.
-    PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-endif
-
 # Enable whole-program R8 Java optimizations for SystemUI and system_server,
 # but also allow explicit overriding for testing and development.
 SYSTEM_OPTIMIZE_JAVA ?= true
 SYSTEMUI_OPTIMIZE_JAVA ?= true
-
-# Disable dex2oat debug
-USE_DEX2OAT_DEBUG := false
 
 # Disable vendor restrictions
 PRODUCT_RESTRICT_VENDOR_FILES := false
