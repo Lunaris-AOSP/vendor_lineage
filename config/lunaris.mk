@@ -201,6 +201,26 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.lmk.use_simple_lmk=$(TARGET_USES_SLMK) \
     ro.lmk.slmk_debug=$(TARGET_SLMK_DEBUG)
 
+# FEATURES
+BYPASS_CHARGE_SUPPORTED ?= false
+PERF_GOV_SUPPORTED ?= false
+PERF_DEFAULT_GOV ?= schedutil
+HBM_SUPPORTED ?= false
+HBM_NODE ?= /sys/class/backlight/panel0-backlight/hbm_mode
+TARGET_ENABLES_IMS_OVERRIDES ?= false
+TARGET_TOUCH_BOOST_SUPPORTED ?= false
+TARGET_DISABLES_LIBPERF ?= false
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
+    persist.sys.dev_supports_perf_gov=$(PERF_GOV_SUPPORTED) \
+    persist.sys.default_scaling_gov=$(PERF_DEFAULT_GOV) \
+    persist.sys.hbmservice_support=$(HBM_SUPPORTED) \
+    persist.sys.hbmservice_file=$(HBM_NODE) \
+    persist.sys.target_enables_ims_override=$(TARGET_ENABLES_IMS_OVERRIDES) \
+    persist.sys.target_supports_touch_boost=$(TARGET_TOUCH_BOOST_SUPPORTED) \
+    persist.sys.target_disables_libperf=$(TARGET_DISABLES_LIBPERF)
+
 ifeq ($(PERF_ANIM_OVERRIDE),true)
 PRODUCT_PRODUCT_PROPERTIES += \
     debug.sf.predict_hwc_composition_strategy=0
