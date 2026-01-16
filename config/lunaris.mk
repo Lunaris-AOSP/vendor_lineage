@@ -105,7 +105,11 @@ endif
 
 # Disable async MTE on a few processes
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    persist.arm64.memtag.system_server=off
+    persist.arm64.memtag.system_server=off \
+    persist.arm64.memtag.app.com.android.se=off \
+    persist.arm64.memtag.app.com.google.android.bluetooth=off \
+    persist.arm64.memtag.app.com.android.nfc=off \
+    persist.arm64.memtag.process.system_server=off
     
 # Use a generic profile based boot image by default
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
