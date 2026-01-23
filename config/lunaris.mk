@@ -230,7 +230,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.hbmservice_file=$(HBM_NODE) \
     persist.sys.target_enables_ims_override=$(TARGET_ENABLES_IMS_OVERRIDES) \
     persist.sys.target_supports_touch_boost=$(TARGET_TOUCH_BOOST_SUPPORTED) \
-    persist.sys.target_disables_libperf=$(TARGET_DISABLES_LIBPERF)
+    persist.sys.target_disables_libperf=$(TARGET_DISABLES_LIBPERF) \
+    persist.sys.display_refresh_rates_list=$(TARGET_SUPPORTED_REFRESH_RATES)
 
 ifeq ($(PERF_ANIM_OVERRIDE),true)
 PRODUCT_PRODUCT_PROPERTIES += \
