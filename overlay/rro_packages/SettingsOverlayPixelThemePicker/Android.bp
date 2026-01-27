@@ -1,0 +1,7 @@
+//
+// Copyright (C) 2026 The Clover Project
+//
+runtime_resource_overlay {
+    name: "SettingsOverlayPixelThemePicker",
+    product_specific: true,
+}
