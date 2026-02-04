@@ -178,3 +178,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.display_refresh_rates_list=$(TARGET_SUPPORTED_REFRESH_RATES)
+
+# UDFPS properties
+PRODUCT_SYSTEM_PROPERTIES += \
+    lunaris_udfps_custom=$(TARGET_CUSTOM_UDFPS)
