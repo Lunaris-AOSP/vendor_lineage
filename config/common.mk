@@ -294,3 +294,8 @@ include vendor/lineage/config/version.mk
 ifeq ($(LUNARIS_BUILD_TYPE),OFFICIAL)
     $(call inherit-product, vendor/lunaris-priv/keys/keys.mk)
 endif
+
+ifeq ($(WITH_GMS), true)
+$(call inherit-product-if-exists, vendor/gapps/permissions/permissions.mk)
+$(call inherit-product-if-exists, vendor/gapps/arm64/arm64-vendor.mk)
+endif
