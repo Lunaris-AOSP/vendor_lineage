@@ -175,3 +175,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # sound
 PRODUCT_PRODUCT_PROPERTIES += \
     audio.safemedia.bypass=1
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.display_refresh_rates_list=$(TARGET_SUPPORTED_REFRESH_RATES)
