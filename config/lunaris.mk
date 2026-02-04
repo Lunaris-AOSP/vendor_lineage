@@ -182,3 +182,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 # UDFPS properties
 PRODUCT_SYSTEM_PROPERTIES += \
     lunaris_udfps_custom=$(TARGET_CUSTOM_UDFPS)
+
+HBM_SUPPORTED ?= false
+HBM_NODE ?= /sys/class/backlight/panel0-backlight/hbm_mode
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.hbmservice_file=$(HBM_NODE)
