@@ -3,6 +3,7 @@ PRODUCT_VERSION_MINOR = 0
 
 # Increase Lunaris Version with each major release.
 LUNARIS_VERSION := 3.7
+LUNARIS_BUILD_TYPE ?= Community
 
 ifeq ($(WITH_GMS),true)
 LUNARIS_BUILD_VARIANT := GMS
@@ -11,10 +12,10 @@ LUNARIS_BUILD_VARIANT := VANILLA
 endif
 
 # Internal version
-LINEAGE_VERSION := LunarisAOSP-v$(LUNARIS_VERSION)-$(LUNARIS_BUILD_VARIANT)-$(shell date +%Y%m%d)-$(LINEAGE_BUILD)
+LINEAGE_VERSION := Lunaris-AOSP-$(LINEAGE_BUILD)-$(LUNARIS_BUILD_TYPE)-$(LUNARIS_VERSION)-$(LUNARIS_BUILD_VARIANT)-$(shell date -u +%Y%m%d%H)
 
 # Display version
-LINEAGE_DISPLAY_VERSION := v$(LUNARIS_VERSION)-$(LUNARIS_BUILD_VARIANT)-$(shell date +%Y%m%d)
+LINEAGE_DISPLAY_VERSION := v$(LUNARIS_VERSION)-$(shell date -u +%Y%m%d)
 
 # LineageOS version properties
 PRODUCT_PRODUCT_PROPERTIES += \
