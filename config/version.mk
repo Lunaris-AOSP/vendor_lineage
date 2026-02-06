@@ -22,4 +22,4 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.lunaris.build.version=$(LUNARIS_VERSION) \
     ro.lunaris.display.version=$(LINEAGE_DISPLAY_VERSION) \
     ro.lunaris.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
-    ro.lunaris.package.type=$(LUNARIS_BUILD_VARIANT)
+    ro.lunaris.package.type=$(LUNARIS_BUILD_VARIANT)-$(LUNARIS_BUILD_TYPE)
