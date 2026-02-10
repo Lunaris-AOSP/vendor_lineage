@@ -91,7 +91,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.minidebuginfo=false \
     dalvik.vm.dex2oat-minidebuginfo=false
 
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
 PRODUCT_ART_TARGET_INCLUDE_DEBUG_BUILD := false
 PRODUCT_MINIMIZE_JAVA_DEBUG_INFO := true
 USE_DEX2OAT_DEBUG := false
@@ -121,16 +120,15 @@ ifeq ($(TARGET_OPTIMIZED_DEXOPT),true)
         pm.dexopt.shared=speed \
         dalvik.vm.dex2oat-filter=speed \
         dalvik.vm.image-dex2oat-filter=speed \
-        dalvik.vm.foreground-heap-growth-multiplier=1.3 \
         dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6 \
         dalvik.vm.dex2oat-threads=6
 
     PRODUCT_DEX_PREOPT_DEFAULT_FLAGS += \
-        --compiler-filter=speed \
-        --no-watch-dog
+        --compiler-filter=speed-profile
 
     $(call add-product-dex-preopt-module-config,services,--compiler-filter=speed)
     $(call add-product-dex-preopt-module-config,wifi-service,--compiler-filter=speed)
+    $(call add-product-dex-preopt-module-config,framework,--compiler-filter=speed-profile)
 
 endif
 
