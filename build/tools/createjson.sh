@@ -9,6 +9,7 @@
 # $1 = TARGET_DEVICE
 # $2 = PRODUCT_OUT
 # $3 = FILE_NAME
+# $4 = WITH_GMS (true/false)
 
 existingOTAjson=./vendor/OTA/builds/$1.json
 output=$2/$1.json
@@ -60,6 +61,19 @@ MD5=$(md5sum "$2/$3" | cut -d' ' -f1)
 SHA256=$(sha256sum "$2/$3" | cut -d' ' -f1)
 SIZE=$(stat -c "%s" "$2/$3")
 
+# Get WITH_GMS from argument (fallback to reading from build.prop if not provided)
+WITH_GMS=$4
+if [ -z "$WITH_GMS" ]; then
+    WITH_GMS=$(grep "^with_google_apps=" "$BUILDPROP" | cut -d'=' -f2)
+fi
+
+# Determine download URL based on WITH_GMS argument
+if [ "$WITH_GMS" = "true" ]; then
+    DOWNLOAD_URL="https://sourceforge.net/projects/ghosuto/files/$1/$3/download"
+else
+    DOWNLOAD_URL="https://sourceforge.net/projects/ghosuto/files/$1/vanilla/$3/download"
+fi
+
 # Generate JSON output (Python-compatible download URL)
 cat <<EOF >"$output"
 {
@@ -69,7 +83,7 @@ cat <<EOF >"$output"
       "oem": "${OEM:-}",
       "device": "${DEVICE:-}",
       "filename": "$FILENAME",
-      "download": "https://sourceforge.net/projects/ghosuto/files/$1/$3/download",
+      "download": "$DOWNLOAD_URL",
       "timestamp": $TIMESTAMP,
       "md5": "$MD5",
       "sha256": "$SHA256",
