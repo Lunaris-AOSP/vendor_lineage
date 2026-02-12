@@ -6,6 +6,10 @@ $(call inherit-product-if-exists, vendor/extra/product.mk)
 $(call inherit-product-if-exists, vendor/fontbox/config.mk)
 $(call inherit-product-if-exists, vendor/certification/config.mk)
 
+ifeq ($(WITH_BCR),true)
+$(call inherit-product, vendor/bcr/bcr.mk)
+endif
+
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
 
