@@ -24,6 +24,10 @@
         <component class=".rtt.settings.impl.gateway.RttSettingsDeepLink" enabled="false" />
     </component-override>
 
+    <component-override package="com.google.android.googlequicksearchbox">
+        <component class=".OneSearchAimActivity" enabled="true" />
+    </component-override>
+
     <component-override package="com.google.android.gms">
         <component class=".chimera.GmsIntentOperationService$GmsExternalReceiver" enabled="false" />
         <component class=".stats.service.DropBoxEntryAddedReceiver" enabled="false" />
