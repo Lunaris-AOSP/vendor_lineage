@@ -194,17 +194,17 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.pihooks_MANUFACTURER?=Google \
     persist.sys.pihooks_BRAND?=google \
-    persist.sys.pihooks_PRODUCT?=komodo_beta \
-    persist.sys.pihooks_DEVICE?=komodo \
-    persist.sys.pihooks_ID?=CP11.251209.007.A1 \
+    persist.sys.pihooks_PRODUCT?=mustang_beta \
+    persist.sys.pihooks_DEVICE?=mustang \
+    persist.sys.pihooks_ID?=CP21.260206.011 \
     persist.sys.pihooks_RELEASE?=16 \
-    persist.sys.pihooks_SECURITY_PATCH?=2026-01-05 \
+    persist.sys.pihooks_SECURITY_PATCH?=2026-02-05 \
     persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=21 \
     persist.sys.pihooks_SDK_INT?=32
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/komodo_beta/komodo:16/CP11.251209.007.A1/14691868:user/release-keys" \
-    PihooksGmsModel="Pixel 9 Pro XL"
+    PihooksGmsFp="google/mustang_beta/mustang:CinnamonBun/CP21.260206.011/14911669:user/release-keys" \
+    PihooksGmsModel="Pixel 10 Pro XL"
 
 # Quick Switch (Pixel Launcher)
 ifeq ($(WITH_GMS),true)
