@@ -3,16 +3,33 @@
 # Copyright (C) 2019-2025 crDroid Android Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
 #
 
 # $1 = TARGET_DEVICE
 # $2 = PRODUCT_OUT
 # $3 = FILE_NAME
-# $4 = WITH_GMS (true/false)
 
-existingOTAjson=./vendor/OTA/builds/$1.json
-output=$2/$1.json
+DEVICE="$1"
+PRODUCT_OUT="$2"
+FILENAME="$3"
+
+# Detect build variant
+if [[ "$FILENAME" == *"vanilla"* ]]; then
+    BUILD_VARIANT="vanilla"
+else
+    BUILD_VARIANT="gapps"
+fi
+
+# Set OTA json location
+if [[ "$BUILD_VARIANT" == "vanilla" ]]; then
+    existingOTAjson="./vendor/OTA/builds/vanilla/${DEVICE}.json"
+    DOWNLOAD_URL="https://sourceforge.net/projects/ghosuto/files/${DEVICE}/vanilla/${FILENAME}/download"
+else
+    existingOTAjson="./vendor/OTA/builds/${DEVICE}.json"
+    DOWNLOAD_URL="https://sourceforge.net/projects/ghosuto/files/${DEVICE}/${FILENAME}/download"
+fi
+
+output="${PRODUCT_OUT}/${DEVICE}.json"
 
 # Cleanup old file
 if [ -f "$output" ]; then
@@ -28,10 +45,11 @@ extract_field() {
         | xargs
 }
 
+# Load existing OTA metadata if present
 if [ -f "$existingOTAjson" ]; then
     MAINTAINER=$(extract_field "maintainer")
     OEM=$(extract_field "oem")
-    DEVICE=$(extract_field "device")
+    DEVICE_NAME=$(extract_field "device")
     BUILDTYPE=$(extract_field "buildtype")
     FORUM=$(extract_field "forum")
     GAPPS=$(extract_field "gapps")
@@ -46,42 +64,28 @@ if [ -f "$existingOTAjson" ]; then
     KERNEL=$(extract_field "kernel")
 fi
 
-# OTA data
-FILENAME=$3
-
-VERSION=$(echo "$3" | cut -d'-' -f5 | sed 's/v//')
+# Extract version from filename
+VERSION=$(echo "$FILENAME" | cut -d'-' -f5 | sed 's/v//')
 V_MAX=$(echo "$VERSION" | cut -d'.' -f1)
 V_MIN=$(echo "$VERSION" | cut -d'.' -f2)
 VERSION="$V_MAX.$V_MIN"
 
-BUILDPROP="$2/system/build.prop"
+# Build information
+BUILDPROP="$PRODUCT_OUT/system/build.prop"
 TIMESTAMP=$(grep "ro.system.build.date.utc" "$BUILDPROP" | cut -d'=' -f2)
 
-MD5=$(md5sum "$2/$3" | cut -d' ' -f1)
-SHA256=$(sha256sum "$2/$3" | cut -d' ' -f1)
-SIZE=$(stat -c "%s" "$2/$3")
+MD5=$(md5sum "$PRODUCT_OUT/$FILENAME" | cut -d' ' -f1)
+SHA256=$(sha256sum "$PRODUCT_OUT/$FILENAME" | cut -d' ' -f1)
+SIZE=$(stat -c "%s" "$PRODUCT_OUT/$FILENAME")
 
-# Get WITH_GMS from argument (fallback to reading from build.prop if not provided)
-WITH_GMS=$4
-if [ -z "$WITH_GMS" ]; then
-    WITH_GMS=$(grep "^with_google_apps=" "$BUILDPROP" | cut -d'=' -f2)
-fi
-
-# Determine download URL based on WITH_GMS argument
-if [ "$WITH_GMS" = "true" ]; then
-    DOWNLOAD_URL="https://sourceforge.net/projects/ghosuto/files/$1/$3/download"
-else
-    DOWNLOAD_URL="https://sourceforge.net/projects/ghosuto/files/$1/vanilla/$3/download"
-fi
-
-# Generate JSON output (Python-compatible download URL)
+# Generate JSON
 cat <<EOF >"$output"
 {
   "response": [
     {
       "maintainer": "${MAINTAINER:-}",
       "oem": "${OEM:-}",
-      "device": "${DEVICE:-}",
+      "device": "${DEVICE_NAME:-$DEVICE}",
       "filename": "$FILENAME",
       "download": "$DOWNLOAD_URL",
       "timestamp": $TIMESTAMP,
