@@ -458,6 +458,13 @@
     <!-- If AOD can show an ambient version of the wallpaper -->
     <bool name="config_dozeSupportsAodWallpaper">true</bool>
 
+    <!-- The array of account types that accounts in any of these can be set as the default account
+         for new raw contacts. -->
+    <string-array name="config_rawContactsEligibleDefaultAccountTypes">
+        <item>com.google</item>
+        <item>at.bitfire.davdroid.address_book</item>
+    </string-array>
+
     <!-- The amount to scale fullscreen snapshots for Overview and snapshot starting windows. -->
     <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.6</item>
 
