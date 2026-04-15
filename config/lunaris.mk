@@ -134,6 +134,7 @@ endif
 
 # Extra packages
 PRODUCT_PACKAGES += \
+    AxQuickLook \
     AxThemeStore \
     BatteryStatsViewer \
     GameSpace \
