@@ -177,6 +177,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # properties
 TARGET_CUSTOM_UDFPS ?= false
+USE_REALITY_ENGINE ?= false
 
 PRODUCT_PRODUCT_PROPERTIES += \
-    persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS)
+    persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS) \
+    persist.display.reality.engine.enabled=$(USE_REALITY_ENGINE)
