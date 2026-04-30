@@ -182,9 +182,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # UDFPS properties
 TARGET_CUSTOM_UDFPS ?= false
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS)
-
 BYPASS_CHARGE_SUPPORTED ?= false
 HBM_SUPPORTED ?= false
 HBM_NODE ?= /sys/class/backlight/panel0-backlight/hbm_mode
@@ -193,7 +190,8 @@ USE_REALITY_ENGINE ?= false
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
     persist.sys.hbmservice_file=$(HBM_NODE) \
-    persist.display.reality.engine.enabled=$(USE_REALITY_ENGINE)
+    persist.display.reality.engine.enabled=$(USE_REALITY_ENGINE) \
+    persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS)
 
 # PIF values
 PRODUCT_PRODUCT_PROPERTIES += \
