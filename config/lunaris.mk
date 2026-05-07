@@ -193,22 +193,6 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.display.reality.engine.enabled=$(USE_REALITY_ENGINE) \
     persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS)
 
-# PIF values
-PRODUCT_PRODUCT_PROPERTIES += \
-    persist.sys.pihooks_MANUFACTURER?=Google \
-    persist.sys.pihooks_BRAND?=google \
-    persist.sys.pihooks_PRODUCT?=blazer_beta \
-    persist.sys.pihooks_DEVICE?=blazer \
-    persist.sys.pihooks_ID?=CP21.260306.017 \
-    persist.sys.pihooks_RELEASE?=16 \
-    persist.sys.pihooks_SECURITY_PATCH?=2026-03-05 \
-    persist.sys.pihooks_DEVICE_INITIAL_SDK_INT?=21 \
-    persist.sys.pihooks_SDK_INT?=32
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PihooksGmsFp="google/blazer_beta/blazer:17/CP21.260306.017/15063635:user/release-keys" \
-    PihooksGmsModel="Pixel 10 Pro"
-
 # Quick Switch (Pixel Launcher)
 ifeq ($(WITH_GMS),true)
 PRODUCT_SYSTEM_PROPERTIES += \
