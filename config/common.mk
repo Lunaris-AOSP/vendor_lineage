@@ -320,7 +320,7 @@ endif
 
 ifeq ($(WITH_GMS), true)
 PRODUCT_PRODUCT_PROPERTIES += \
-    with_google_apps=true
+    persist.sys.with_google_apps=true
 
 $(call inherit-product, vendor/gms/products/gms.mk)
 endif
