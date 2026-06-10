@@ -1,0 +1,6 @@
+flag_value {
+  package: "com.android.graphics.surfaceflinger.flags"
+  name: "shader_disk_cache"
+  state: ENABLED
+  permission: READ_ONLY
+}
