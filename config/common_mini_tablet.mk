@@ -5,3 +5,6 @@ $(call inherit-product, vendor/lineage/config/common_mobile_mini.mk)
 $(call inherit-product, vendor/lineage/config/tablet.mk)
 
 $(call inherit-product, vendor/lineage/config/telephony.mk)
+
+# Define tablet-specific variables
+TARGET_IS_TABLET := true

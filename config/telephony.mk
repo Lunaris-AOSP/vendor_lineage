@@ -16,12 +16,6 @@ PRODUCT_PACKAGES += \
     messaging \
     Stk
 
-# Default ringtone
-ifneq ($(WITH_GMS), true)
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.config.ringtone=Orion.ogg
-endif
-
 # Tethering - allow without requiring a provisioning app
 # (for devices that check this)
 PRODUCT_PRODUCT_PROPERTIES += \

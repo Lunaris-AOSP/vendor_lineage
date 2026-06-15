@@ -5,3 +5,7 @@ $(call inherit-product, vendor/lineage/config/common_mobile_full.mk)
 $(call inherit-product, vendor/lineage/config/tablet.mk)
 
 $(call inherit-product, vendor/lineage/config/wifionly.mk)
+
+# Define tablet-specific variables
+TARGET_IS_TABLET := true
+WITH_GMS_COMMS_SUITE := false

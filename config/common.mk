@@ -312,6 +312,16 @@ include vendor/lineage/config/version.mk
 
 -include vendor/lineage-priv/keys/keys.mk
 
+ifeq ($(WITH_GMS),true)
+PRODUCT_PACKAGES += \
+    SettingsOverlayPixelThemePicker \
+    SettingsProviderOverlayGMS
+else
+PRODUCT_PACKAGES += \
+    SettingsOverlay \
+    SettingsProviderOverlayVanilla
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lineage/config/partner_gms.mk
 
@@ -324,17 +334,13 @@ ifeq ($(WITH_GMS), true)
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.with_google_apps=true
 
-$(call inherit-product, vendor/gms/products/gms.mk)
+# Pixel GMS
+$(call inherit-product, vendor/pixel/gms/products/gms.mk)
+$(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
+$(call inherit-product, vendor/pixel/launcher/products/launcher.mk)
+$(call inherit-product, vendor/pixel/themepicker/products/themepicker.mk)
 endif
 
 # Custom Overlays
 PRODUCT_PACKAGES += \
     PixelLauncherOverlayCustom
-
-ifeq ($(WITH_GMS),true)
-PRODUCT_PACKAGES += \
-    SettingsOverlayPixelThemePicker
-else
-PRODUCT_PACKAGES += \
-    SettingsOverlay
-endif

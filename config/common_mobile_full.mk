@@ -4,8 +4,7 @@ $(call inherit-product, vendor/lineage/config/common_mobile.mk)
 PRODUCT_SIZE := full
 
 PRODUCT_PACKAGES += \
-    Profiles \
-    Seedvault
+    Profiles
 
 ifneq ($(WITH_GMS), true)  
 # Apps
@@ -13,6 +12,7 @@ PRODUCT_PACKAGES += \
     Camelot \
     Etar \
     Recorder \
+    Seedvault \
     Twelve
 endif
 
