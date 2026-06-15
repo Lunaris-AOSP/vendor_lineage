@@ -193,14 +193,21 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.display.reality.engine.enabled=$(USE_REALITY_ENGINE) \
     persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS)
 
-# Quick Switch (Pixel Launcher)
+# Quick Switch (Launcher3)
+WITH_PIXEL_LAUNCHER ?= true
 ifeq ($(WITH_GMS),true)
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.default_launcher=1 \
-    persist.sys.quickswitch_pixel_shipped=1
+    ifeq ($(WITH_PIXEL_LAUNCHER),true)
+        PRODUCT_SYSTEM_PROPERTIES += \
+            persist.sys.default_launcher=1 \
+            persist.sys.quickswitch_pixel_shipped=1
+    else
+        PRODUCT_SYSTEM_PROPERTIES += \
+            persist.sys.default_launcher=0 \
+            persist.sys.quickswitch_pixel_shipped=0
+    endif
 else
-PRODUCT_SYSTEM_PROPERTIES += \
-    persist.sys.default_launcher=0
+    PRODUCT_SYSTEM_PROPERTIES += \
+        persist.sys.default_launcher=0
 endif
 
 ifeq ($(SURFACE_FLINGER_BOOST),true)
