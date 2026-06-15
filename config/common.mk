@@ -344,6 +344,8 @@ $(call inherit-product, vendor/pixel/gms/products/gms.mk)
 $(call inherit-product, vendor/pixel/sounds/products/sounds.mk)
 $(call inherit-product, vendor/pixel/launcher/products/launcher.mk)
 $(call inherit-product, vendor/pixel/themepicker/products/themepicker.mk)
+else
+$(call inherit-product, vendor/prebuilts/prebuilts.mk)
 endif
 
 # Custom Overlays
