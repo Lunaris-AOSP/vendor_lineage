@@ -58,13 +58,6 @@ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := \
 PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/etc/preloaded-classes
 
-# Disable async MTE on a few processes
-PRODUCT_SYSTEM_EXT_PROPERTIES += \
-    persist.arm64.memtag.app.com.android.se=off \
-    persist.arm64.memtag.app.com.google.android.bluetooth=off \
-    persist.arm64.memtag.app.com.android.nfc=off \
-    persist.arm64.memtag.process.system_server=off
-
 # Enable Material Design 3 Expressive
 PRODUCT_PRODUCT_PROPERTIES += is_expressive_design_enabled=true
 
