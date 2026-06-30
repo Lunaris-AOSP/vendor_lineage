@@ -193,7 +193,7 @@ WITH_PIXEL_LAUNCHER ?= true
 ifeq ($(WITH_GMS),true)
     ifeq ($(WITH_PIXEL_LAUNCHER),true)
         PRODUCT_SYSTEM_PROPERTIES += \
-            persist.sys.default_launcher=1 \
+            persist.sys.default_launcher=0 \
             persist.sys.quickswitch_pixel_shipped=1
     else
         PRODUCT_SYSTEM_PROPERTIES += \
