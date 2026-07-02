@@ -179,6 +179,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
 TARGET_CUSTOM_UDFPS ?= false
 USE_REALITY_ENGINE ?= false
 BYPASS_CHARGE_SUPPORTED ?= false
+USE_ADVANCED_DISPLAY_COLOR ?= false
 HBM_SUPPORTED ?= false
 
 HBM_NODE ?= /sys/class/backlight/panel0-backlight/hbm_mode
@@ -186,5 +187,6 @@ HBM_NODE ?= /sys/class/backlight/panel0-backlight/hbm_mode
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS) \
     persist.display.reality.engine.enabled=$(USE_REALITY_ENGINE) \
+    persist.display.color.advanced.enabled=$(USE_ADVANCED_DISPLAY_COLOR) \
     persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED) \
     persist.sys.hbmservice_file=$(HBM_NODE)
