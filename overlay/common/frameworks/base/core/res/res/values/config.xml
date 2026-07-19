@@ -512,4 +512,6 @@
     <item name="config_highResTaskSnapshotScale" format="float" type="dimen">0.6</item>
 
     <bool name="config_enableNewAutoSelectNetworkUI">true</bool>
+
+    <item name="config_wallpaperMaxScale" format="float" type="dimen">1.20</item>
 </resources>
