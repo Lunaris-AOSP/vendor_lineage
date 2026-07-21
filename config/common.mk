@@ -340,6 +340,11 @@ ifeq ($(LUNARIS_BUILD_TYPE),OFFICIAL)
     $(call inherit-product, vendor/lunaris-priv/keys/keys.mk)
 endif
 
+USE_DEFAULT_VULKAN ?= false
+ifeq ($(USE_DEFAULT_VULKAN), true)
+    $(call inherit-product-if-exists, vendor/lineage/config/vulkan.mk)
+endif
+
 ifeq ($(WITH_GMS), true)
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.with_google_apps=true
