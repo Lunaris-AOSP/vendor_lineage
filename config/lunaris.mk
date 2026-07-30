@@ -37,6 +37,11 @@ PRODUCT_SYSTEM_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=0
 endif
 
+DEFAULT_BLUR_ALGORITHM ?= glass
+
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.renderengine.blur_algorithm=$(DEFAULT_BLUR_ALGORITHM)
+
 # Cloned app exemption
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/sysconfig/preinstalled-packages-platform-crdroid-product.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/preinstalled-packages-platform-crdroid-product.xml
