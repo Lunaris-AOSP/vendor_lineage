@@ -1,6 +1,9 @@
 # GMS
 ifeq ($(WITH_GMS),true)
 WITH_GMS_COMMS_SUITE := true
+else
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.config.ringtone=Orion.ogg
 endif
 
 # Sensitive Phone Numbers list
