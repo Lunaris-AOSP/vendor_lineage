@@ -140,6 +140,12 @@ PRODUCT_PACKAGES += \
     OmniStyle \
     OptimizationEngine
 
+# Skip AppDataBackup on Pixel devices
+ifeq ($(filter Google google,$(PRODUCT_MANUFACTURER)),)
+PRODUCT_PACKAGES += \
+    AppDataBackup
+endif
+
 $(call inherit-product-if-exists, axion_sdk/ax_tflite/common.mk)
 
 ifneq ($(TARGET_DISABLE_MATLOG),true)
