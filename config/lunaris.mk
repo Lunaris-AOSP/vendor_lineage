@@ -135,7 +135,8 @@ PRODUCT_PACKAGES += \
     LMOFreeform \
     LMOFreeformSidebar \
     OmniJaws \
-    OmniStyle
+    OmniStyle \
+    OptimizationEngine
 
 $(call inherit-product-if-exists, axion_sdk/ax_tflite/common.mk)
 
