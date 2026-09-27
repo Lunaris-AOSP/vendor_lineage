@@ -18,6 +18,7 @@ endif
 # Apps
 PRODUCT_PACKAGES += \
     AvatarPicker \
+    Gallery2 \
     Glimpse \
     LatinIME
 
