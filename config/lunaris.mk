@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
     GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
+    LunarisLockStyles \
     OmniJaws \
     OmniStyle \
     OptimizationEngine
