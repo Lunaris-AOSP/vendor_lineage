@@ -193,7 +193,7 @@ PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.udfps.custom=$(TARGET_CUSTOM_UDFPS)
 
 # Quick Switch (Launcher3)
-WITH_PIXEL_LAUNCHER ?= true
+WITH_PIXEL_LAUNCHER ?= false
 ifeq ($(WITH_GMS),true)
     ifeq ($(WITH_PIXEL_LAUNCHER),true)
         PRODUCT_SYSTEM_PROPERTIES += \
