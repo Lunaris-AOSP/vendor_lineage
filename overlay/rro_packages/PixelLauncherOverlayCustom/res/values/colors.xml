@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blur_shade_panel_bg">@*android:color/shade_panel_bg_color</color>
+    <color name="blur_shade_panel_fg">@*android:color/shade_panel_fg_color</color>
+</resources>
