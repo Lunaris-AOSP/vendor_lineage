@@ -135,6 +135,7 @@ PRODUCT_PACKAGES += \
     LMOFreeform \
     LMOFreeformSidebar \
     LunarisLockStyles \
+    LunarisMonet \
     OmniJaws \
     OmniStyle \
     OptimizationEngine
