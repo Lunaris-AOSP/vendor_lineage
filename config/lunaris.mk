@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
     GameSpace \
     LMOFreeform \
     LMOFreeformSidebar \
+    LunarBackup \
     LunarisLockStyles \
     OmniJaws \
     OmniStyle \
